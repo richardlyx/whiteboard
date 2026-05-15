@@ -1,0 +1,47 @@
+{
+  "name": "whiteboard",
+  "productName": "协作白板",
+  "version": "1.1.0",
+  "description": "协作白板 - 纯 HTML 单文件实时画布工具",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --mac",
+    "build:dmg": "electron-builder --mac dmg"
+  },
+  "author": "richardlyx",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^33.4.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.richardlyx.whiteboard",
+    "productName": "协作白板",
+    "copyright": "Copyright © 2025 richardlyx",
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": ["x64", "arm64"]
+        }
+      ],
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false
+    },
+    "dmg": {
+      "title": "协作白板",
+      "artifactName": "${productName}-${version}-${arch}.${ext}"
+    },
+    "files": [
+      "whiteboard.html",
+      "main.js",
+      "preload.js",
+      "icon.png"
+    ],
+    "directories": {
+      "output": "dist"
+    }
+  }
+}
